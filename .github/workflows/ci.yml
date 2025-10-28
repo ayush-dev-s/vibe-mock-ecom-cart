@@ -40,7 +40,7 @@ jobs:
         run: npm --prefix backend run coverage
 
       - name: Test frontend (Vitest)
-        run: npm --prefix frontend run coverage
+        run: npm --prefix frontend run test:run
 
       - name: Upload coverage artifacts
         uses: actions/upload-artifact@v4
@@ -49,3 +49,4 @@ jobs:
           path: |
             backend/coverage
             frontend/coverage
+          if-no-files-found: ignore
