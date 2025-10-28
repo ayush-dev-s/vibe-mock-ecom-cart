@@ -5,7 +5,13 @@ const db = require('./db');
 const { getProducts, findProduct } = require('./services/products');
 
 const app = express();
-app.use(cors());
+const corsOptions = {
+  // In dev, allow any origin so the frontend can run on any localhost port/host
+  origin: (origin, cb) => cb(null, true),
+  methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type'],
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Mock user handling (single default user persisted in DB)

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const api = axios.create({ baseURL: '/api' })
+const api = axios.create({ baseURL: import.meta.env.VITE_API_URL || '/api' })
 
 export const getProducts = async () => (await api.get('/products')).data
 export const getCart = async () => (await api.get('/cart')).data
