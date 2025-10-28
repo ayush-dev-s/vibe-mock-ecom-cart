@@ -13,3 +13,8 @@ backend/dist
 
 # Local SQLite database
 backend/data/*.db
+backend/data/*.db-wal
+backend/data/*.db-shm
+
+# Local env files (frontend)
+frontend/.env.*
