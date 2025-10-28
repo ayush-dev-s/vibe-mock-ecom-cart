@@ -1,5 +1,11 @@
 # Mock E-Com Cart (Vibe Commerce Internship Assignment)
 
+[![CI](https://github.com/ayush-dev-s/vibe-mock-ecom-cart/actions/workflows/ci.yml/badge.svg)](https://github.com/ayush-dev-s/vibe-mock-ecom-cart/actions/workflows/ci.yml)
+![Node](https://img.shields.io/badge/node-20.x-43853d?logo=node.js&logoColor=white)
+![Vite](https://img.shields.io/badge/vite-7-646CFF?logo=vite&logoColor=white)
+![React](https://img.shields.io/badge/react-19-61DAFB?logo=react&logoColor=black)
+![Express](https://img.shields.io/badge/express-5-black?logo=express&logoColor=white)
+
 A minimal, production-ready full-stack shopping cart app.
 
 - Backend: Node + Express, SQLite persistence (better-sqlite3), Fake Store API products, centralized error handling
@@ -46,10 +52,14 @@ Open http://localhost:5173
 
 ## Screenshots
 
-Add screenshots here (UI, cart, checkout). Suggested flow:
-- Products list
+Screenshots (place under `docs/screenshots/`):
+
+- UI – Products list
+  ![Products](docs/screenshots/products.png)
 - Cart with items and totals
+  ![Cart](docs/screenshots/cart.png)
 - Checkout success (receipt ID)
+  ![Checkout](docs/screenshots/checkout.png)
 
 ## Testing
 
