@@ -1,0 +1,21 @@
+{
+  "name": "vibe-mock-ecom-cart",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "install:all": "npm install && npm --prefix backend install && npm --prefix frontend install",
+    "dev": "concurrently -n server,client -c blue,magenta \"npm:server\" \"npm:client\"",
+    "server": "npm --prefix backend run dev",
+    "server:start": "npm --prefix backend run start",
+    "client": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "start": "concurrently -n server,client -c blue,magenta \"npm:server:start\" \"npm:client\"",
+    "lint": "npm --prefix frontend run lint",
+    "test": "concurrently -n backend,frontend -c yellow,cyan \"npm --prefix backend run test\" \"npm --prefix frontend run test:run\"",
+    "test:watch": "concurrently -n backend,frontend -c yellow,cyan \"npm --prefix backend run test:watch\" \"npm --prefix frontend run test:watch\"",
+    "coverage": "concurrently -n backend,frontend -c yellow,cyan \"npm --prefix backend run coverage\" \"npm --prefix frontend run coverage\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
