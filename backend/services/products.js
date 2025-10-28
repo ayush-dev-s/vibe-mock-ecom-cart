@@ -7,8 +7,20 @@ const insertOne = db.prepare('INSERT OR REPLACE INTO products (id, name, price) 
 async function ensureProducts() {
   const existing = selectAll.all()
   if (existing.length > 0) return existing
-  const { data } = await axios.get('https://fakestoreapi.com/products')
-  const mapped = (data || []).map((p) => ({ id: `fs-${p.id}`, name: p.title, price: Number(p.price) }))
+
+  let mapped
+  try {
+    const { data } = await axios.get('https://fakestoreapi.com/products', { timeout: 5000 })
+    mapped = (data || []).map((p) => ({ id: `fs-${p.id}`, name: p.title, price: Number(p.price) }))
+  } catch (err) {
+    console.warn('Falling back to local mock products due to fetch failure:', err.message)
+    // Use local mock data as a fallback when external API is unavailable
+    // Data already in desired shape: { id, name, price }
+    // eslint-disable-next-line global-require
+    const local = require('../data/products')
+    mapped = local
+  }
+
   const insertMany = db.transaction((rows) => {
     for (const row of rows) insertOne.run(row)
   })

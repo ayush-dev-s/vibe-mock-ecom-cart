@@ -10,6 +10,7 @@ function App() {
 
   const refresh = async () => {
     setLoading(true)
+    setError('')
     try {
       const [p, c] = await Promise.all([getProducts(), getCart()])
       setProducts(p)

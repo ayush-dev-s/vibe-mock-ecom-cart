@@ -10,3 +10,6 @@ backend/dist
 # Env & OS
 .env
 .DS_Store
+
+# Local SQLite database
+backend/data/*.db
